@@ -1,12 +1,9 @@
 /** @format */
 
 import React from 'react';
-
-const Result = (props) => {
+const Result = ({ questions }) => {
 	const confirmation = window.confirm('Are you sure for submission ?');
 	if (confirmation) {
-		let questions = props.questions;
-
 		questions.forEach((q) => {
 			q.isCorrect = q.options.every((x) => x.selected === x.isAnswer);
 		});
