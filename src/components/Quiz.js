@@ -64,7 +64,7 @@ const Quiz = () => {
 		}
 	}, []);
 
-	const renderMode = () => {
+	const renderMode = useCallback(() => {
 		if (mode === 'quiz') {
 			return <Questions move={move} />;
 		} else if (mode === 'review') {
@@ -72,7 +72,7 @@ const Quiz = () => {
 		} else {
 			return <Result questions={quiz.questions || []} />;
 		}
-	};
+	}, [mode, move, quiz]);
 	return (
 		<div>
 			{renderMode()}
