@@ -1,12 +1,21 @@
 /** @format */
 
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { onPagerUpdate } from '../actions';
 const Result = ({ questions }) => {
+	const dispatch = useDispatch();
+	const history = useHistory();
 	const confirmation = window.confirm('Are you sure for submission ?');
 	if (confirmation) {
 		questions.forEach((q) => {
 			q.isCorrect = q.options.every((x) => x.selected === x.isAnswer);
 		});
+		const redirect = (e) => {
+			dispatch(onPagerUpdate('quiz'));
+			history.push(e.target.name);
+		};
 
 		return (
 			<div className='result'>
@@ -41,6 +50,9 @@ const Result = ({ questions }) => {
 						</div>
 					</div>
 				))}
+				<button name='/' className='btn btn-primary' onClick={redirect}>
+					Redirect to Home
+				</button>
 				<h4 className='alert alert-info text-center'>
 					You may close this window now.
 				</h4>
