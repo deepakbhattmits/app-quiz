@@ -8,7 +8,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import reducer from './reducer';
 import App from './components/App';
-//import Questions from "./components/Questions";
 import Result from './components/Result';
 import Review from './components/Review';
 import Home from './components/Home';
