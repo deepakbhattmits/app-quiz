@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../App.css';
+import '../assets/styles';
 import Quiz from './Quiz';
 import { connect } from 'react-redux';
 import { quizConstants } from '../constants';
