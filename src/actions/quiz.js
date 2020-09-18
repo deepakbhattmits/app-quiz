@@ -7,3 +7,11 @@ export const onSubmit = (payload) => async (dispatch) => {
 export const onPagerUpdate = (payload) => async (dispatch) => {
 	dispatch({ type: quizConstants.PagerUpdate, payload });
 };
+
+export const onQuizLoad = (payload) => async (dispatch) => {
+	dispatch({ type: quizConstants.QuizLoad, payload });
+};
+
+export const onAnswer = (payload) => async (dispatch) => {
+	dispatch({ type: quizConstants.QuizAnswer, payload });
+};
