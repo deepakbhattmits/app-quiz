@@ -16,7 +16,10 @@ code {
 .btn,
 .btn-info:not(:disabled):not(.disabled).active,
 .btn-info:not(:disabled):not(.disabled):active,
-.show > .btn-info.dropdown-toggle {
+.show > .btn-info.dropdown-toggle,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
 	border-radius: 0;
 	background-color: #2bd9a2;
 	border-color: transparent;
