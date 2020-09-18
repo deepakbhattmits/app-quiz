@@ -4,18 +4,19 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { onPagerUpdate } from '../actions';
-const Result = ({ questions }) => {
+const Result = ({ questions, move }) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const confirmation = window.confirm('Are you sure for submission ?');
+
+	const redirect = (e) => {
+		dispatch(onPagerUpdate(e.target.name));
+		history.push(e.target.name);
+	};
 	if (confirmation) {
 		questions.forEach((q) => {
 			q.isCorrect = q.options.every((x) => x.selected === x.isAnswer);
 		});
-		const redirect = (e) => {
-			dispatch(onPagerUpdate('quiz'));
-			history.push(e.target.name);
-		};
 
 		return (
 			<div className='result'>
