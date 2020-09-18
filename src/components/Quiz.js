@@ -44,7 +44,7 @@ const Quiz = () => {
 		} else if (mode === 'review') {
 			return <Review quiz={quiz} move={move} />;
 		} else if (mode === 'submit') {
-			return <Result questions={quiz.questions || []} />;
+			return <Result questions={quiz.questions || []} move={move} />;
 		}
 	}, [mode, move, quiz]);
 
