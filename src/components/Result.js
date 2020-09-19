@@ -52,11 +52,9 @@ const Result = ({ questions, move }) => {
 					</div>
 				))}
 				<button name='/' className='btn btn-primary' onClick={redirect}>
-					Redirect to Home
+					Redirect to List
 				</button>
-				<h4 className='alert alert-info text-center'>
-					You may close this window now.
-				</h4>
+				
 			</div>
 		);
 	}
