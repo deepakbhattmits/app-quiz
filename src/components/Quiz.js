@@ -1,5 +1,6 @@
 /** @format */
-import React, { useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { onSubmit, onPagerUpdate } from '../actions';
 import Review from './Review';
@@ -8,6 +9,8 @@ import Result from './Result';
 
 const Quiz = () => {
 	const dispatch = useDispatch();
+
+	// const history = useHistory();
 	const quiz = useSelector((state) => state.quiz.quiz);
 	const mode = useSelector((state) => state.quiz.mode);
 	const pager = useSelector((state) => state.quiz.pager);
@@ -47,6 +50,7 @@ const Quiz = () => {
 		},
 		[dispatch]
 	);
+
 	const renderMode = useCallback(() => {
 		if (mode === 'quiz') {
 			return <Questions move={move} />;
@@ -54,20 +58,18 @@ const Quiz = () => {
 			return <Review quiz={quiz} move={move} />;
 		} else if (mode === 'submit') {
 			let confirmation = window.confirm('Are you sure for submission ?');
-			console.log('ON QUIZ : ', confirmation);
-			if (!confirmation) {
-				let e = { target: { id: 'quiz' } };
+			if (confirmation) {
+				return (
+					<Result
+						questions={quiz.questions || []}
+						move={move}
+						setMode={setMode}
+					/>
+				);
+			} else {
+				const e = { target: { id: 'quiz' } };
 				setMode(e);
-
-				return <Quiz />;
 			}
-			return (
-				<Result
-					questions={quiz.questions || []}
-					move={move}
-					setMode={setMode}
-				/>
-			);
 		}
 	}, [mode, move, quiz, setMode]);
 	return (
