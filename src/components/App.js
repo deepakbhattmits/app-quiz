@@ -46,7 +46,7 @@ const App = () => {
 					</div>
 				</div>
 			</header>
-			<Quiz quiz={state.quiz} quizId={state.quizId} mode={state.mode} />
+			<Quiz />
 		</div>
 	);
 };
