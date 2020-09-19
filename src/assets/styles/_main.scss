@@ -46,6 +46,11 @@ code {
 	cursor: pointer;
 	font-size: 20px;
 	margin: 4px;
+
+	display: grid;
+	grid-template-columns: 20px 1fr;
+	align-items: center;
+	padding: 0 10px;
 }
 
 .option label {
