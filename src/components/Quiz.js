@@ -1,5 +1,4 @@
 /** @format */
-
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { onSubmit, onPagerUpdate } from '../actions';
@@ -38,16 +37,6 @@ const Quiz = () => {
 		},
 		[pager, dispatch]
 	);
-	const renderMode = useCallback(() => {
-		if (mode === 'quiz') {
-			return <Questions move={move} />;
-		} else if (mode === 'review') {
-			return <Review quiz={quiz} move={move} />;
-		} else if (mode === 'submit') {
-			return <Result questions={quiz.questions || []} move={move} />;
-		}
-	}, [mode, move, quiz]);
-
 	const setMode = useCallback(
 		(e) => {
 			try {
@@ -58,7 +47,29 @@ const Quiz = () => {
 		},
 		[dispatch]
 	);
+	const renderMode = useCallback(() => {
+		if (mode === 'quiz') {
+			return <Questions move={move} />;
+		} else if (mode === 'review') {
+			return <Review quiz={quiz} move={move} />;
+		} else if (mode === 'submit') {
+			let confirmation = window.confirm('Are you sure for submission ?');
+			console.log('ON QUIZ : ', confirmation);
+			if (!confirmation) {
+				let e = { target: { id: 'quiz' } };
+				setMode(e);
 
+				return <Quiz />;
+			}
+			return (
+				<Result
+					questions={quiz.questions || []}
+					move={move}
+					setMode={setMode}
+				/>
+			);
+		}
+	}, [mode, move, quiz, setMode]);
 	return (
 		<div>
 			{renderMode()}
@@ -66,13 +77,13 @@ const Quiz = () => {
 				<div>
 					<hr />
 					{/* <button
-						id='quiz'
-						className='btn btn-info'
-						onClick={(e) => {
-							setMode(e);
-						}}>
-						Quiz
-					</button> */}
+    					id='quiz'
+    					className='btn btn-info'
+    					onClick={(e) => {
+    						setMode(e);
+    					}}>
+    					Quiz
+    				</button> */}
 					<button
 						to='/quiz/review'
 						id='review'
