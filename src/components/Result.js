@@ -1,17 +1,15 @@
 /** @format */
 
 import React from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import Quiz from './Quiz';
 const Result = ({ questions, setMode }) => {
-	const dispatch = useDispatch();
 	const history = useHistory();
-
-	// const confirmation = window.confirm('Are you sure for submission ?');
-	// console.log(confirmation);
-
+	// let confirmation = window.confirm('Are you sure for submission ?');
 	// if (!confirmation) {
-	// 	return <Redirect to='/quiz' />;
+	// 	const e = { target: { id: 'quiz' } };
+	// 	setMode(e);
+	// 	return <Quiz />;
 	// }
 	// if (confirmation) {
 	const redirect = () => {
