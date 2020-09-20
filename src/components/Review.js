@@ -4,7 +4,9 @@ import React from 'react';
 
 const Review = ({ quiz, move }) => {
 	const isAnswered = (q) => {
-		return q.options.some((x) => x.selected) ? 'Answered' : 'Not Answered';
+		let isAnswered = q.options.some((x) => x.selected);
+
+		return isAnswered ? 'Answered' : 'Not Answered';
 	};
 	return (
 		<div>
