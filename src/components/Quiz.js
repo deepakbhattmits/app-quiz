@@ -86,23 +86,38 @@ const Quiz = () => {
     					}}>
     					Quiz
     				</button> */}
-					<button
-						to='/quiz/review'
-						id='review'
-						className='btn btn-info'
-						onClick={(e) => {
-							setMode(e);
-						}}>
-						Review
-					</button>
-					<button
-						id='submit'
-						className='btn btn-primary'
-						onClick={(e) => {
-							setMode(e);
-						}}>
-						Submit Quiz
-					</button>
+					{mode === 'review' && (
+						<button
+							id='quiz'
+							className='btn btn-info'
+							onClick={(e) => {
+								setMode(e);
+							}}>
+							Back to Quiz
+						</button>
+					)}
+					{mode !== 'review' && (
+						<>
+							<button
+								to='/quiz/review'
+								id='review'
+								className='btn btn-info'
+								onClick={(e) => {
+									setMode(e);
+								}}>
+								Review
+							</button>
+
+							<button
+								id='submit'
+								className='btn btn-primary'
+								onClick={(e) => {
+									setMode(e);
+								}}>
+								Submit Quiz
+							</button>
+						</>
+					)}
 				</div>
 			)}
 		</div>
