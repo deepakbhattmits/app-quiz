@@ -6,7 +6,7 @@ import { onSubmit, onPagerUpdate } from '../actions';
 import Review from './Review';
 import Questions from './Questions';
 import Result from './Result';
-
+// Quiz
 const Quiz = () => {
 	const dispatch = useDispatch();
 	// const history = useHistory();
