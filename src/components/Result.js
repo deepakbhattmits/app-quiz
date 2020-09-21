@@ -3,6 +3,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Quiz from './Quiz';
+// Result
 const Result = ({ questions, setMode }) => {
 	const history = useHistory();
 	// let confirmation = window.confirm('Are you sure for submission ?');
