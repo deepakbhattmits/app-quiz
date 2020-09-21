@@ -89,12 +89,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { onAnswer } from '../actions';
-//import reducer from '../reducer';
-//import \* from '../../public/data/questions';
-
-//import {Route, NavLink, BrowserRouter as Router, } from 'react-router-dom';
-//import '../App.css';
-
 const mapStateToProps = (state) => ({
 	...state.quiz,
 	...state.mode,
