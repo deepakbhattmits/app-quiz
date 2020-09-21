@@ -7,7 +7,7 @@ import Quiz from './Quiz';
 import '../assets/styles/index.scss';
 const App = () => {
 	const dispatch = useDispatch();
-	const quiz = useSelector((state) => state.quiz);
+	const quiz = useSelector((state) => state.quiz.quiz);
 	const [state, setState] = useState({
 		quizes: [{ id: '/data/javascript.json', name: 'Javascript' }],
 		quizId: '/data/javascript.json',
@@ -34,8 +34,11 @@ const App = () => {
 			});
 	}, []);
 	useEffect(() => {
-		load(state.quizId);
-	}, [load, state]);
+		if (!!!quiz.questions?.length) {
+			console.log('QUESTIONS ', quiz.questions);
+			load(state.quizId);
+		}
+	}, [load, state, quiz]);
 
 	return (
 		<div className='container'>
