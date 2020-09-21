@@ -9,11 +9,15 @@ import Result from './Result';
 
 const Quiz = () => {
 	const dispatch = useDispatch();
-
 	// const history = useHistory();
 	const quiz = useSelector((state) => state.quiz.quiz);
 	const mode = useSelector((state) => state.quiz.mode);
 	const pager = useSelector((state) => state.quiz.pager);
+	let selected = [];
+	selected = [
+		...selected,
+		quiz.questions.filter((el) => el.options.find((el) => el.selected)),
+	][0]?.length;
 
 	const move = useCallback(
 		(e) => {
@@ -67,8 +71,9 @@ const Quiz = () => {
 					/>
 				);
 			} else {
-				const e = { target: { id: 'quiz' } };
-				setMode(e);
+				// const e = { target: { id: 'quiz' } };
+				// setMode(e);
+				return true;
 			}
 		}
 	}, [mode, move, quiz, setMode]);
@@ -107,15 +112,18 @@ const Quiz = () => {
 								}}>
 								Review
 							</button>
-
-							<button
-								id='submit'
-								className='btn btn-primary'
-								onClick={(e) => {
-									setMode(e);
-								}}>
-								Submit Quiz
-							</button>
+							{selected === pager.count ? (
+								<button
+									id='submit'
+									className='btn btn-primary'
+									onClick={(e) => {
+										setMode(e);
+									}}>
+									Submit Quiz
+								</button>
+							) : (
+								''
+							)}
 						</>
 					)}
 				</div>
