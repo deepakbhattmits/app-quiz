@@ -27,7 +27,7 @@ let initialQuiz = {
 		count: 1,
 	},
 };
-
+// reducer for quiz
 export default (state = { ...initialQuiz }, action) => {
 	switch (action.type) {
 		case quizConstants.PagerUpdate:
