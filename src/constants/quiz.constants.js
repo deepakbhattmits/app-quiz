@@ -1,5 +1,5 @@
 /** @format */
-
+// quizConstants
 export const quizConstants = {
 	QuizLoad: 'QuizLoad',
 	QuizAnswer: 'QuizAnswer',
