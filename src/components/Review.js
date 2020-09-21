@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-
+// Review
 const Review = ({ quiz, move }) => {
 	const isAnswered = (q) => {
 		let isAnswered = q.options.some((x) => x.selected);
