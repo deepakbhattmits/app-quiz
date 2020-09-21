@@ -35,7 +35,6 @@ const App = () => {
 	}, []);
 	useEffect(() => {
 		if (!!!quiz.questions?.length) {
-			console.log('QUESTIONS ', quiz.questions);
 			load(state.quizId);
 		}
 	}, [load, state, quiz]);
