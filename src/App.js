@@ -3,7 +3,7 @@
 import React from 'react';
 import logo from './assets/images/logo.svg';
 import '../assets/styles/index.scss';
-
+// App not using this file
 function App() {
 	return (
 		<div className='App'>
