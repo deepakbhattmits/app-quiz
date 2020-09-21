@@ -114,7 +114,8 @@ class Questions extends React.Component {
 				x.selected = false;
 			});
 		}
-		q.options.find((x) => x.id === option.id).selected = true;
+		const corectAns = q.options.find((x) => x.id === option.id);
+		corectAns.selected = true;
 		this.props.onAnswer(quiz);
 	}
 
