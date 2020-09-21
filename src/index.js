@@ -30,12 +30,12 @@ function RoutingComponent() {
 		</div>
 	);
 }
-
+const rootElement = document.querySelector('#root');
 ReactDOM.render(
 	<Provider store={store}>
 		<Router>
 			<RoutingComponent />
 		</Router>
 	</Provider>,
-	document.getElementById('root')
+	rootElement
 );
